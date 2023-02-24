@@ -35,8 +35,11 @@ const showAllData = (countries) => {
     <div class="card-body items-center text-center">
       <h2 class="card-title">${country.name.common}</h2>
       <p>Population: ${country.population}</p>
+      <p>Currency: ${Object.keys(country.currencies)[0]}</p>
       <div class="card-actions">
-        <label onclick="showSingleCountry('${country.cca2}')" class="btn btn-primary" for="my-modal-3" class="btn">Show Details</label>
+        <label onclick="showSingleCountry('${
+          country.cca2
+        }')" class="btn btn-primary" for="my-modal-3" class="btn">Show Details</label>
       </div>
     </div>
   </div>
@@ -67,8 +70,6 @@ const showSingleCountry = (id) => {
 };
 
 const showSingleCountryDataModal = (value) => {
-  // console.log(Object.keys(value.currencies)[0]);
-  const currency = Object.keys(value.currencies)[0];
   const container = document.getElementById("modal-info");
   const div = document.createElement("div");
   div.classList.add("modal");
@@ -86,9 +87,6 @@ const showSingleCountryDataModal = (value) => {
   </h3>
   <p class="py-4">
     Population : ${value.population}
-  </p>
-  <p  class="py-4">
-    Currency : ${currency}
   </p>
 </div>
   `;
