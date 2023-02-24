@@ -57,13 +57,11 @@ const singlePlayer = (id) => {
     .then((res) => res.json())
     .then((data) => showSinglePlayer(data.players[0]));
 };
-
 const showSinglePlayer = (data) => {
   console.log(data);
   const { strThumb, strPlayer, strDescriptionEN, strGender } = data;
-
   const container = document.getElementById("single-player-details");
-
+  container.innerHTML = "";
   const div = document.createElement("div");
   if (strGender === "Male") {
     document.getElementById("male").classList.remove("d-none");

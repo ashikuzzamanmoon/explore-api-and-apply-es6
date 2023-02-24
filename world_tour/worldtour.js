@@ -1,14 +1,24 @@
 // console.log("touring");
 
-const loadAllData = () => {
-  fetch("https://restcountries.com/v3.1/all")
-    .then((res) => res.json())
-    .then((data) => {
-      //   console.log(data);
-      allData = data;
-      showAllData(data.slice(0, 5));
-    });
+// const loadAllData = () => {
+//   fetch("https://restcountries.com/v3.1/all")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       //   console.log(data);
+//       allData = data;
+//       showAllData(data.slice(0, 5));
+//     });
+// };
+
+const loadMyData = async () => {
+  const res = await fetch("https://restcountries.com/v3.1/all");
+  const data = await res.json();
+  console.log(data);
+  showAllData(data.slice(0, 5));
 };
+loadMyData();
+// loadAllData();
+
 // console.log(allData);
 const showAllData = (countries) => {
   //   console.log(countries);
@@ -36,7 +46,7 @@ const showAllData = (countries) => {
   });
 };
 
-loadAllData();
+// loadAllData();
 
 const showAllDataTogether = () => {
   fetch("https://restcountries.com/v3.1/all")
