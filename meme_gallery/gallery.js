@@ -1,15 +1,14 @@
 // console.log("meme js loading");
-
+// load data fro mAPI
 const loadMeme = () => {
   const URL = "https://meme-api.com/gimme/25";
-
   fetch(URL)
     .then((res) => res.json())
     .then((data) => showMeme(data.memes));
 };
 
+// show data in UI
 const showMeme = (memes) => {
-  //   console.log(memes);
   memes.slice(0, 10).forEach((meme) => {
     console.log(meme.url);
     const memeConatainer = document.getElementById("section");

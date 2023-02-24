@@ -10,6 +10,9 @@
 //     });
 // };
 
+// loadAllData()
+
+// get data from mAPI
 const loadMyData = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -17,11 +20,9 @@ const loadMyData = async () => {
   showAllData(data.slice(0, 5));
 };
 loadMyData();
-// loadAllData();
 
-// console.log(allData);
+// show data to UI
 const showAllData = (countries) => {
-  //   console.log(countries);
   const countryContainer = document.getElementById("countries-info");
   countryContainer.innerHTML = "";
   countries.forEach((country) => {
@@ -43,32 +44,28 @@ const showAllData = (countries) => {
       </div>
     </div>
   </div>
-
     `;
     countryContainer.appendChild(div);
   });
 };
 
-// loadAllData();
-
+// get single country info using dynamic URL and unique id
 const showAllDataTogether = () => {
   fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
     .then((data) => {
-      //   console.log(data);
       showAllData(data);
     });
 };
 
+// show single country info in modal using dynamic URL and unique id
 const showSingleCountry = (id) => {
-  // console.log(id);
   const URL = `
   https://restcountries.com/v3.1/alpha/${id}`;
   fetch(URL)
     .then((res) => res.json())
     .then((data) => showSingleCountryDataModal(data[0]));
 };
-
 const showSingleCountryDataModal = (value) => {
   const container = document.getElementById("modal-info");
   const div = document.createElement("div");
