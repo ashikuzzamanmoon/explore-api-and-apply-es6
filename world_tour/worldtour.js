@@ -1,5 +1,6 @@
 // console.log("touring");
 
+// get all data and pass only some data using slice to show in the UI
 // const loadAllData = () => {
 //   fetch("https://restcountries.com/v3.1/all")
 //     .then((res) => res.json())
@@ -12,7 +13,7 @@
 
 // loadAllData()
 
-// get data from mAPI
+// get all data and pass only some data using slice to show in the UI
 const loadMyData = async () => {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -49,7 +50,7 @@ const showAllData = (countries) => {
   });
 };
 
-// get single country info using dynamic URL and unique id
+// get all data and pass all data using slice to show in the UI when click See All button
 const showAllDataTogether = () => {
   fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
@@ -58,7 +59,7 @@ const showAllDataTogether = () => {
     });
 };
 
-// show single country info in modal using dynamic URL and unique id
+// get single country info using dynamic URL and unique id
 const showSingleCountry = (id) => {
   const URL = `
   https://restcountries.com/v3.1/alpha/${id}`;
@@ -66,6 +67,8 @@ const showSingleCountry = (id) => {
     .then((res) => res.json())
     .then((data) => showSingleCountryDataModal(data[0]));
 };
+
+// show single country info in modal using dynamic URL and unique id
 const showSingleCountryDataModal = (value) => {
   const container = document.getElementById("modal-info");
   const div = document.createElement("div");
